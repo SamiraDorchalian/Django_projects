@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block page_title %}{% endblock page_title %}</title>
+</head>
+<body>
+    <a href="/">Home Page</a>
+    <br>
+    <a href="{% url 'contactus' %}">ContactUS Page</a>
+    <br>
+    <a href="/about">About Page</a>
+
+    <h3>{% block page_1 %}{% endblock page_1 %}</h3>
+
+    {% block content %}
+    {% endblock content %}
+
+</body>
+</html>
