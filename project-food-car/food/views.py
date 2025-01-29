@@ -5,7 +5,10 @@ from django.http import HttpResponse
 
 
 def show_pizza(request):
-    return HttpResponse('I love pizza')
+    return HttpResponse("""
+    <h1>Hello this is my page</h1>
+    <input type="button" value="click me" />
+    """)
 
 def show_hamburger(request):
     return HttpResponse('Hamburger')
