@@ -8,20 +8,36 @@ from django.shortcuts import reverse
 # TDD => Test-Driven Development
 
 class BlogPostTest(TestCase):
-    def setUp(self):
-        self.user = User.objects.create(username='user1')
-        self.post1 = Post.objects.create(
+    @classmethod
+    def setUpTestData(cls):
+        user = User.objects.create(username='user1')
+        cls.post1 = Post.objects.create(
             title='Post1',
             text='This is the description of Post1',
-            status=Post.STATUS_CHOICES[0][0], #Published
-            auther=self.user
+            status=Post.STATUS_CHOICES[0][0],  # Published
+            auther=user
         )
-        self.post2 = Post.objects.create(
+        cls.post2 = Post.objects.create(
             title='Post2',
-            text='This is the description of Post2', #Draft
+            text='This is the description of Post2',  # Draft
             status=Post.STATUS_CHOICES[1][0],
-            auther=self.user
+            auther=user,
         )
+
+    # def setUp(self):
+    #     self.user = User.objects.create(username='user1')
+    #     self.post1 = Post.objects.create(
+    #         title='Post1',
+    #         text='This is the description of Post1',
+    #         status=Post.STATUS_CHOICES[0][0], #Published
+    #         auther=self.user
+    #     )
+    #     self.post2 = Post.objects.create(
+    #         title='Post2',
+    #         text='This is the description of Post2', #Draft
+    #         status=Post.STATUS_CHOICES[1][0],
+    #         auther=self.user
+    #     )
 
     def test_post_list_url(self):
         response = self.client.get('/blog/')
