@@ -1,8 +1,8 @@
 from django.http import HttpResponse
-
 from django.shortcuts import render
-
 from .models import Post
+from django.core.exceptions import ObjectDoesNotExist
+from django.shortcuts import get_object_or_404
 
 # Create your views here.
 
@@ -11,5 +11,10 @@ def post_list_view(request):
     return  render(request, 'blog/posts_list.html', {'posts_list': posts_list})
 
 def post_detail_view(request, pk):
-    print('ID IN URL:', pk)
-    return HttpResponse(f'ID: {pk}')
+    post = get_object_or_404(Post, pk=pk)
+    # try:
+    #     post = Post.objects.get(pk=pk)
+    # except ObjectDoesNotExist:
+    #     post = None
+    #     print('Excepted')
+    return render(request, 'blog/post_detail.html', {'post': post})
