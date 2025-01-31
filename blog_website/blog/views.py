@@ -7,7 +7,9 @@ from django.shortcuts import get_object_or_404
 # Create your views here.
 
 def post_list_view(request):
-    posts_list = Post.objects.all()
+    # posts_list = Post.objects.all()
+            #ORM => (Object Relational Mapper)
+    posts_list = Post.objects.filter(status='pub') #kwargs
     return  render(request, 'blog/posts_list.html', {'posts_list': posts_list})
 
 def post_detail_view(request, pk):

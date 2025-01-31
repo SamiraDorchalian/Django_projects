@@ -13,7 +13,13 @@ class BlogPostTest(TestCase):
         self.post1 = Post.objects.create(
             title='Post1',
             text='This is the description of Post1',
-            status=Post.STATUS_CHOICES[0],
+            status=Post.STATUS_CHOICES[0][0], #Published
+            auther=self.user
+        )
+        self.post2 = Post.objects.create(
+            title='Post2',
+            text='This is the description of Post2', #Draft
+            status=Post.STATUS_CHOICES[1][0],
             auther=self.user
         )
 
@@ -46,4 +52,10 @@ class BlogPostTest(TestCase):
     def test_status_404_is_post_id_not_exist(self):
         response = self.client.get(reverse('posts_detail', args=[999]))
         self.assertEqual(response.status_code, 404)
+
+    def test_draft_post_not_show_in_posts_list(self):
+        #TDD =>Test-Driven Development
+        response = self.client.get(reverse('posts_list'))
+        self.assertContains(response, self.post1.title)
+        self.assertNotContains(response, self.post2.title)
 
