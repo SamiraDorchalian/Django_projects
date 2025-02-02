@@ -5,20 +5,35 @@ from django.shortcuts import reverse
 # Create your tests here.
 
 class BlogPostTest(TestCase):
-    def setUp(self):
-        self.user = User.objects.create(username='user1')
-        self.post1 = Post.objects.create(
-            title = 'Post1',
-            text = 'This is the description of Post1',
-            status = Post.STATUS_CHOICES[0][0],
-            author = self.user,
+    @classmethod
+    def setUpTestData(cls):
+        user = User.objects.create(username='user1')
+        cls.post1 = Post.objects.create(
+            title='Post1',
+            text='This is the description of Post1',
+            status=Post.STATUS_CHOICES[0][0],
+            author=user,
         )
-        self.post2 = Post.objects.create(
+        cls.post2 = Post.objects.create(
             title='Post2',
             text='This is the description of Post2',
             status=Post.STATUS_CHOICES[1][0],
-            author=self.user,
+            author=user,
         )
+    # def setUp(self):
+    #     self.user = User.objects.create(username='user1')
+    #     self.post1 = Post.objects.create(
+    #         title = 'Post1',
+    #         text = 'This is the description of Post1',
+    #         status = Post.STATUS_CHOICES[0][0],
+    #         author = self.user,
+    #     )
+    #     self.post2 = Post.objects.create(
+    #         title='Post2',
+    #         text='This is the description of Post2',
+    #         status=Post.STATUS_CHOICES[1][0],
+    #         author=self.user,
+    #     )
 
     def test_post_list_url(self):
         response = self.client.get('/blog/')
