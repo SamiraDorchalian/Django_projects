@@ -24,4 +24,11 @@ def post_detail_view(request, pk):
     return render(request, 'blog/post_detail.html', {'post': post})
 
 def post_create_view(request):
+    # print(request.POST)
+    # print(request.POST.get('title'))
+    if request.method == 'POST':
+        print(request.POST.get('title'))
+        print(request.POST.get('text'))
+    else:
+        print('GET request')
     return render(request, 'blog/post_create.html')
