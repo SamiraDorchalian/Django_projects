@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import get_object_or_404
+from django.contrib.auth.models import User
 
 from .models import Post
 
@@ -27,8 +28,13 @@ def post_create_view(request):
     # print(request.POST)
     # print(request.POST.get('title'))
     if request.method == 'POST':
-        print(request.POST.get('title'))
-        print(request.POST.get('text'))
+        # print(request.POST.get('title'))
+        # print(request.POST.get('text'))
+        post_title = request.POST.get('title')
+        post_text = request.POST.get('text')
+
+        user = User.objects.all()[0]
+        Post.objects.create(title=post_title, text=post_text, author=user, status='pub')
     else:
         print('GET request')
     return render(request, 'blog/post_create.html')
