@@ -50,3 +50,15 @@ def post_create_view(request):
     # else:
     #     print('GET request')
     # return render(request, 'blog/post_create.html')
+
+def post_update_view(request, pk):
+    # post = Post.objects.get(pk:pk)
+    post = get_object_or_404(Post, pk=pk)
+    form = NewPostForm(request.POST or None, instance=post)
+
+    if form.is_valid():
+        form.save()
+
+
+    return render(request, 'blog/post_create.html', context={'form': form})
+
