@@ -23,6 +23,5 @@ def post_detail_view(request, pk):
     #     print('Excepted')
     return render(request, 'blog/post_detail.html', {'post': post})
 
-def post_add_view(request):
-    return render(request, 'blog/post_create.html'),
-
+def post_create_view(request):
+    return render(request, 'blog/post_create.html')
