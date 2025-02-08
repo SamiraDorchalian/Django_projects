@@ -40,31 +40,21 @@ class PostDetailView(generic.DetailView):
     context_object_name = 'post'
 
 
-def post_create_view(request):
-    if request.method == 'POST':
-        form = NewPostForm(request.POST)
-        if form.is_valid():
-            form.save()
-            # return redirect(reverse('posts_list'))
-            return redirect('posts_list')
+# def post_create_view(request):
+#     if request.method == 'POST':
+#         form = NewPostForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('posts_list')
+#     else:
+#         form = NewPostForm
+#
+#     return render(request, 'blog/post_create.html', context={'form': form})
 
-    else:
-        form = NewPostForm
+class PostCreateView(generic.CreateView):
+    form_class = NewPostForm
+    template_name = 'blog/post_create.html'
 
-    return render(request, 'blog/post_create.html', context={'form': form})
-    # # print(request.POST)
-    # # print(request.POST.get('title'))
-    # if request.method == 'POST':
-    #     # print(request.POST.get('title'))
-    #     # print(request.POST.get('text'))
-    #     post_title = request.POST.get('title')
-    #     post_text = request.POST.get('text')
-    #
-    #     user = User.objects.all()[0]
-    #     Post.objects.create(title=post_title, text=post_text, author=user, status='pub')
-    # else:
-    #     print('GET request')
-    # return render(request, 'blog/post_create.html')
 
 def post_update_view(request, pk):
     # post = Post.objects.get(pk:pk)
