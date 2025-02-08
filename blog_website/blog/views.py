@@ -5,6 +5,7 @@ from django.shortcuts import get_object_or_404
 from django.contrib.auth.models import User
 
 from .models import Post
+from .forms import NewPostForm
 
 
 # Create your views here.
@@ -25,13 +26,20 @@ def post_detail_view(request, pk):
     return render(request, 'blog/post_detail.html', {'post': post})
 
 def post_create_view(request):
+    # if request.method == 'POST':
+    #     post_title = request.POST.get('title')
+    #     post_text = request.POST.get('text')
+    #
+    #     user = User.objects.all()[0]
+    #     Post.objects.create(title=post_title, text=post_text, auther=user, status='pub')
+    # else:
+    #     print('GET REQUEST')
+
+    # return render(request, 'blog/post_create.html')
+
     if request.method == 'POST':
-        post_title = request.POST.get('title')
-        post_text = request.POST.get('text')
-
-        user = User.objects.all()[0]
-        Post.objects.create(title=post_title, text=post_text, auther=user, status='pub')
+        pass
     else:
-        print('GET REQUEST')
-    return render(request, 'blog/post_create.html')
+        form = NewPostForm()
 
+    return render(request, 'blog/post_create.html', context={'form': form})
