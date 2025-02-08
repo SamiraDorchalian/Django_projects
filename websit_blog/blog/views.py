@@ -4,6 +4,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.models import User
 from django.views import generic
+from django.urls import reverse_lazy
 
 from .models import Post
 from .forms import NewPostForm
@@ -72,11 +73,20 @@ class PostUpdateView(generic.UpdateView):
     form_class = NewPostForm
     template_name = 'blog/post_create.html'
 
-def post_delete_view(request ,pk):
-    post = get_object_or_404(Post, pk=pk)
+# def post_delete_view(request ,pk):
+#     post = get_object_or_404(Post, pk=pk)
+#
+#     if request.method == 'POST':
+#         post.delete()
+#         return redirect('posts_list')
+#
+#     return render(request, 'blog/post_delete.html', context={'post': post})
 
-    if request.method == 'POST':
-        post.delete()
-        return redirect('posts_list')
+class PostDeleteView(generic.DeleteView):
+    model = Post
+    template_name = 'blog/post_delete.html'
+    success_url = reverse_lazy('posts_list')
 
-    return render(request, 'blog/post_delete.html', context={'post': post})
+    # def get_success_url(self):
+    #     return reverse('posts_list')
+
