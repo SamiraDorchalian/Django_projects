@@ -9,8 +9,7 @@ from .forms import NewPostForm
 
 
 def post_list_view(request):
-
-    posts_list = Post.objects.filter(status='pub') #kwargs
+    posts_list = Post.objects.filter(status='pub').order_by('-datetime_modified')
     return  render(request, 'blog/posts_list.html', {'posts_list': posts_list})
 
 def post_detail_view(request, pk):
@@ -35,6 +34,7 @@ def post_update_view(request, pk):
 
     if form.is_valid():
         form.save()
+        return redirect('posts_list')
 
     return render(request, 'blog/post_create.html', context={'form': form})
 
