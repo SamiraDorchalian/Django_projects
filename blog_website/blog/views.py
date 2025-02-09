@@ -28,3 +28,14 @@ def post_create_view(request):
         form = NewPostForm()
 
     return render(request, 'blog/post_create.html', context={'form': form})
+
+def post_update_view(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    form = NewPostForm(request.POST or None, instance=post)
+
+    if form.is_valid():
+        form.save()
+
+    return render(request, 'blog/post_create.html', context={'form': form})
+
+
