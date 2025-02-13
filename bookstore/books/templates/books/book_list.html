@@ -3,11 +3,32 @@
 {% block  page_title %}لیست کتاب ها{% endblock page_title %}
 
 {% block content %}
-	{% for book in books %}
-        <a href="{{ book.get_absolute_url }}"><h1>{{ book.title|capfirst }}</h1></a>
-        <p>{{ book.author|capfirst }}</p>
-        <p>{{ book.description|truncatewords:15 }}</p>
-        <br>
-	{% endfor %}
-    <a href="{% url 'book_create' %}">اضافه کردن کتاب جدید</a>
+    <div class="container mt-4">
+        <div class="row flex-row-reverse justify-content-md-center">
+            {% for book in books %}
+                <div class="card m-2" style="max-width: 45%">
+                    <div class="row g-0 h-100" dir="rtl">
+                        <div class="col-md-4">
+                            <img src="https://newcdn.fidibo.com/images/books/69249_94233_normal.jpg"
+                                 class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-8 h-100">
+                            <div class="d-flex flex-column justify-content-between h-100">
+                                <div class="card-body">
+                                    <a href="{{ book.get_absolute_url }}"><h3 class="card-title"><strong>{{ book.title }}</strong></h3></a>
+                                    <p class="card-text pt-3">{{ book.description|truncatewords:30 }}</p>
+                                    <p class="text-muted">نویسنده: {{ book.author }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <footer class="bg-light text-center text-lg-start mt-5">
+        <div class="text-center bg-grey">
+            <p>مینی پروژه های جنگو <a class="text-dark" href="https://github.com/SamiraDorchalian" target="_blank">گیت هاب 🐱‍👤</a></p>
+        </div>
+    </footer>
 {% endblock content %}
