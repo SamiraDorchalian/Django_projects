@@ -10,6 +10,9 @@
     <h4>{{ book.pages_book }}</h4>
     <h4>{{ book.price }}</h4>
     <h3>{{ book.year_of_publication }}</h3>
-    <a href="{% url 'book_list' %}">لیست همه کتاب ها</a>
+    <p>
+        <a href="{% url 'book_list' %}">لیست همه کتاب ها</a> |
+        <a href="{% url 'book_update' book.id %}">ویرایش کتاب</a>
+    </p>
     <h3>{{ book.description }}</h3>
 {% endblock %}
