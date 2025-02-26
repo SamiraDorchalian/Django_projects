@@ -27,6 +27,9 @@
                             <h5 class="small my-1"><span class="text-muted">translator: </span>{{ book.translator }}
                             </h5>
                             <h5 class="small my-1"><span class="text-muted">Publisher: </span>{{ book.publisher }}</h5>
+                            <a class="btn btn-warning" href="{% url 'book_update' book.id %}">Update</a>
+                            <span>OR</span>
+                            <a class="btn btn-danger" href="{% url 'book_delete' book.id %}">Delete</a>
                         </div>
                         <div class="col-xs-12 col-md-3 d-flex flex-column mt-5">
                             <h6 class="align-self-center pt-2 text-muted align-self-md-end">Price:
