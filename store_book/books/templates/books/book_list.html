@@ -1,6 +1,6 @@
 {% extends '_base.html' %}
 
-{% block page_title %}لیست کتاب ها{% endblock %}
+{% block page_title %}All List Books{% endblock %}
 
 {% block content %}
     <div class="container mt-4">
@@ -9,8 +9,13 @@
                 <div class="card m-2" style="max-width: 45%">
                     <div class="row g-0 h-100" dir="ltr">
                         <div class="col-md-4">
-                            <img src="https://m.media-amazon.com/images/I/51pGnSMKIBL._AC_SY200_QL15_.jpg"
-                                 class="img-fluid rounded-start" alt="...">
+                            {% if book.cover %}
+                                <img src="{{ book.cover.url }}"
+                                     class="img-fluid rounded-start" alt="...">
+                            {% else %}
+                                <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwritersinthestormblog.com%2F2022%2F02%2Fbook-cover-101-romance-covers%2F&psig=AOvVaw30DJwdR1ldz4j4BdpmXKty&ust=1740654048915000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCMjd4-eV4YsDFQAAAAAdAAAAABAE"
+                                     class="img-fluid rounded-start" alt="...">
+                            {% endif %}
                         </div>
                         <div class="col-md-8 h-100">
                             <div class="d-flex flex-column justify-content-between h-100">
@@ -31,7 +36,11 @@
 
     <footer class="bg-light text-center text-lg-start mt-5">
         <div class="text-center bg-grey">
-            <p>دوره آموزشی جنگو <a class="text-dark" href="https://codingyar.com/" target="_blank">کدینگ یار</a></p>
+            <p>
+                BookStore
+                <a class="text-dark"
+                   href="https://github.com/SamiraDorchalian?tab=overview&from=2025-02-01&to=2025-02-24"
+                   target="_blank">GitHub</a></p>
         </div>
     </footer>
 

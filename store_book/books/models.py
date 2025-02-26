@@ -10,6 +10,7 @@ class Book(models.Model):
     price = models.DecimalField(max_digits=5, decimal_places=2)
     pages_book = models.PositiveIntegerField(null=True, blank=True)
     year_of_publication = models.PositiveIntegerField(null=True, blank=True)
+    cover = models.ImageField(upload_to='covers/', blank=True)
 
     def __str__(self):
         return self.title
