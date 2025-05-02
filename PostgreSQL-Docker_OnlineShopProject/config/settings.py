@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'allauth.account',
     # Optional -- requires install using `django-allauth[socialaccount]`.
     'allauth.socialaccount',
+    'rosetta',
 
     # Local Apps
     'accounts.apps.AccountsConfig',
@@ -175,9 +176,17 @@ SOCIALACCOUNT_PROVIDERS = {
 
 # LANGUAGE_CODE = 'en-us'
 LANGUAGE_CODE = 'fa'
+# LANGUAGE_CODE = 'ko-KR'
+
+LANGUAGES = (
+    ('en', 'English'),
+    ('fa', 'Persian'),
+    ('ko', 'Korean'),
+)
 
 # TIME_ZONE = 'UTC'
 TIME_ZONE = 'Asia/Tehran'
+# TIME_ZONE = 'Asia/Seoul'
 
 # use Internationalization
 USE_I18N = True
@@ -214,3 +223,6 @@ ACCOUNT_UNIQUE_EMAIL = True
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
+LOCALE_PATHS = (
+'templates/locale',
+)
