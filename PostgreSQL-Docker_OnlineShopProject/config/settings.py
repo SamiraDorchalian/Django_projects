@@ -173,12 +173,17 @@ SOCIALACCOUNT_PROVIDERS = {
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+# LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'fa'
 
-TIME_ZONE = 'UTC'
+# TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Tehran'
 
+# use Internationalization
 USE_I18N = True
-
+# localization
+USE_L10N = True
+# use TIME_ZONE
 USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
