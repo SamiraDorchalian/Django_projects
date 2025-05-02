@@ -226,3 +226,9 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 LOCALE_PATHS = (
 'templates/locale',
 )
+
+from django.contrib.messages import constants as messages_constants
+# For messages framework
+MESSAGE_TAGS = {
+messages_constants.ERROR: 'danger',
+}
