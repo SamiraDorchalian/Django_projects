@@ -8,14 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-02 14:11+0330\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2025-05-14 18:36+0330\n"
+"PO-Revision-Date: 2025-05-14 18:26+0330\n"
+"Last-Translator:   <samira@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Translated-Using: django-rosetta 0.10.2\n"
 
 #: .\models.py:30
 msgid "Very Bad"
@@ -53,62 +54,76 @@ msgstr "توضیحات محصول"
 msgid "$"
 msgstr "تومان"
 
-#: .\templates\products\product_detail.html:63
+#: .\templates\products\product_detail.html:70
 msgid "Add to Cart"
 msgstr "اضافه به سبد خرید"
 
-#: .\templates\products\product_detail.html:67
+#: .\templates\products\product_detail.html:86
 msgid "Categories"
 msgstr "دسته بندی ها"
 
-#: .\templates\products\product_detail.html:68
+#: .\templates\products\product_detail.html:87
 msgid "Clothes"
 msgstr "لباس"
 
-#: .\templates\products\product_detail.html:69
+#: .\templates\products\product_detail.html:88
 msgid "Summer"
 msgstr "تابستونی"
 
-#: .\templates\products\product_detail.html:70
+#: .\templates\products\product_detail.html:89
 msgid "Hot"
 msgstr "گرم"
 
-#: .\templates\products\product_detail.html:71
+#: .\templates\products\product_detail.html:90
 msgid "Womans"
 msgstr "زنانه"
 
-#: .\templates\products\product_detail.html:83
+#: .\templates\products\product_detail.html:102
 msgid "Product Description"
 msgstr "توضیحات محصول"
 
-#: .\templates\products\product_detail.html:87
+#: .\templates\products\product_detail.html:106
 msgid "Values"
 msgstr "ویژگی ها"
 
-#: .\templates\products\product_detail.html:117
+#: .\templates\products\product_detail.html:136
 msgid "Black"
 msgstr "سیاه"
 
-#: .\templates\products\product_detail.html:118
+#: .\templates\products\product_detail.html:137
 msgid "Green"
 msgstr "سبز"
 
-#: .\templates\products\product_detail.html:119
+#: .\templates\products\product_detail.html:138
 msgid "Red"
 msgstr "قرمز"
 
-#: .\templates\products\product_detail.html:120
+#: .\templates\products\product_detail.html:139
 msgid "Orange"
 msgstr "نارنجی"
 
-#: .\templates\products\product_detail.html:163
+#: .\templates\products\product_detail.html:188
 msgid "Write your comment"
 msgstr "نظر خود را بنویسید"
 
-#: .\templates\products\product_detail.html:169
+#: .\templates\products\product_detail.html:194
 msgid "Submit"
 msgstr "ارسال"
 
-#: .\views.py:11
+#: .\templates\products\product_detail.html:198
+#, fuzzy
+#| msgid "Write your comment"
+msgid "To write your comment please"
+msgstr "نظر خود را بنویسید"
+
+#: .\templates\products\product_detail.html:199
+msgid "Login"
+msgstr "ورود"
+
+#: .\views.py:13
 msgid "Hello"
 msgstr "سلام"
+
+#: .\views.py:51
+msgid "Comment successfuly created"
+msgstr "نظر شما با موفقیت ساخته شد."
