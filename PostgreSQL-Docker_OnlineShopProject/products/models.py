@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.utils import timezone
 from django.shortcuts import reverse
 from django.contrib.auth import get_user_model
 from django.utils.translation import gettext_lazy as _
@@ -9,10 +9,10 @@ class Product(models.Model):
     description = models.TextField()
     price = models.PositiveIntegerField(default=0)
     active = models.BooleanField(default=True)
-
-    datetime_created = models.DateTimeField(auto_now_add=True)
-    datetime_modified = models.DateTimeField(auto_now=True)
     image = models.ImageField(verbose_name= _('Product Image'), upload_to='product/product_cover/', blank=True, )
+
+    datetime_created = models.DateTimeField(default=timezone.now, verbose_name= _('Date Time of Creation'))
+    datetime_modified = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.title
@@ -27,7 +27,7 @@ class ActiveCommentsManager(models.Manager):
 
 
 class Comment(models.Model):
-    PRODUCT_STER = [
+    PRODUCT_STAR = [
         ('1', _('Very Bad')),
         ('2', _('Bad')),
         ('3', _('Normal')),
@@ -43,7 +43,7 @@ class Comment(models.Model):
         verbose_name='Comment author'
     )
     body = models.TextField(verbose_name=_('Comment Text'))
-    stars = models.CharField(max_length=10, choices=PRODUCT_STER, verbose_name=_('What is Your score?'), )
+    stars = models.CharField(max_length=10, choices=PRODUCT_STAR, verbose_name=_('What is Your score?'), )
 
     datetime_created = models.DateTimeField(auto_now_add=True)
     datetime_modified = models.DateTimeField(auto_now=True)

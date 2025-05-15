@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'django.contrib.humanize',
+
     # Third Party Apps
     "crispy_forms",
     "crispy_bootstrap5",
@@ -54,12 +56,14 @@ INSTALLED_APPS = [
     # Optional -- requires install using `django-allauth[socialaccount]`.
     'allauth.socialaccount',
     'rosetta',
+    'jalali_date',
 
     # Local Apps
     'accounts.apps.AccountsConfig',
     'pages.apps.PagesConfig',
     'products.apps.ProductsConfig',
     'cart.apps.CartConfig',
+    'persian_translate.apps.PersianTranslateConfig',
 ]
 
 SITE_ID = 1
