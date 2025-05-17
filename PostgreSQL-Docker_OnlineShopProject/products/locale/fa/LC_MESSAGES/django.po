@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-15 10:51+0330\n"
-"PO-Revision-Date: 2025-05-14 18:26+0330\n"
+"PO-Revision-Date: 2025-05-17 13:39+0330\n"
 "Last-Translator:   <samira@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -115,7 +115,6 @@ msgid "Submit"
 msgstr "ارسال"
 
 #: .\templates\products\product_detail.html:191
-#, fuzzy
 #| msgid "Write your comment"
 msgid "To write your comment please"
 msgstr "نظر خود را بنویسید"
